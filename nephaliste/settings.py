@@ -126,7 +126,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'south',
     'debug_toolbar',
-
+    'nephaliste',
     'gestion',
     'consumer',
 )
