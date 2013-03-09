@@ -1,8 +1,8 @@
 # coding=utf8
 from django.db import models
 from django.core.exceptions import ValidationError
-from django.contrib.auth.models import User
 from datetime import datetime, date, timedelta
+from consumer.models import Consumer
 
 class Consommable(models.Model):
     """
@@ -29,7 +29,7 @@ class Vente(models.Model):
     Orders
     """
 
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(Consumer)
     consommation = models.ForeignKey('Consommable')
     date = models.DateTimeField(auto_now_add=True)
 

@@ -8,6 +8,15 @@ class Consumer(User):
 	user = OneToOneField(User)
 	surnom = CharField(max_length=50, blank=True)
 	solde = DecimalField(max_digits=5, decimal_places=2, default=0)
-	caution = DateField(blank=True, null=True)
+	caution = BooleanField()
 
 	promotion = IntegerField(blank=True, null=True)
+
+	def __unicode__(self):
+		return __unicode__(user)
+
+	def can_afford(self, amount):
+		return (not self.user.is_active)
+			&& ((self.user.is_staff)
+			 || (self.user.solde - amount > -25 && self.caution)
+			 || (self.user.solde - amount > 0))
