@@ -21,7 +21,8 @@
           <a class="brand" href="#">Le Néphaliste</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Gestion</a></li>
+              <li class="active"><a href="{% url 'gestion.views.debit' %}">Débiter</a></li>
+              <li class="active"><a href="{% url 'gestion.views.credit' %}">Créditer</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
