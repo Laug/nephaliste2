@@ -2,7 +2,7 @@
 from django.db.models import *
 from django.contrib.auth.models import User
 
-class Consumer(User):
+class Consumer(Model):
 	"""
 	Non-auth-related data about a client
 	"""
@@ -14,7 +14,7 @@ class Consumer(User):
 	promotion = IntegerField(blank=True, null=True)
 
 	def __unicode__(self):
-		return __unicode__(user)
+		return self.user.__unicode__()
 
 	def can_afford(self, amount):
 		return ((not self.user.is_active)
@@ -29,7 +29,7 @@ class Credit(Model):
 	amount = DecimalField(max_digits=5, decimal_places=2)
 
 	def __unicode__(self):
-		return "Dépôt de {0}€ par {1} le {2}".format(amount, user, date)
+		return u"Dépôt de {0}€ par {1} le {2}".format(amount, user, date)
 
 	def save(self, *args, **kwargs):
 		self.user.solde += self.amount

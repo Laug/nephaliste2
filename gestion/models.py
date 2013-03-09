@@ -10,7 +10,7 @@ class Consommable(models.Model):
     
     >>> conso = Consommable.objects.create(nom="Pinte de Kro", prix="2.00")
     >>> conso
-    'Pinte de Kro à 2.00€'
+    'Pinte de Kro (2.00€)'
 
     """
 
@@ -19,7 +19,7 @@ class Consommable(models.Model):
     prix = models.DecimalField(max_digits=4, decimal_places=2)
 
     def __unicode__(self):
-        nom = "{0} à {1} €".format(self.nom, self.prix)
+        nom = u"{0} ({1}€)".format(self.nom, self.prix)
         if not self.disponible:
             nom += " (indisponible)"
         return nom
@@ -34,7 +34,7 @@ class Vente(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
-    	vente = "{0} par {1}".format(self.consommation.nom, self.user)
+        vente = u"{0} par {1}".format(self.consommation.nom, self.user)
         if self.date is not None:
             vente +=  " le {0}".format(self.date)
         return vente
@@ -43,7 +43,7 @@ class Vente(models.Model):
         if not self.user.can_afford(self.consommation.prix):
             raise ValidationError("Solde insuffisant")
         if not self.consommation.disponible:
-        	raise ValidationError("Consommable non disponible")
+            raise ValidationError("Consommable non disponible")
 
     def save(self, *args, **kwargs):
         """
