@@ -8,6 +8,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'nephaliste.views.home', name='home'),
     # url(r'^nephaliste/', include('nephaliste.foo.urls')),
 
+    url(r'^gestion/', include('gestion.urls')),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
