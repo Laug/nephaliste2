@@ -128,11 +128,18 @@ INSTALLED_APPS = (
     'debug_toolbar',
 
     'gestion',
+    'consumer',
 )
 
 #debug toolbar
 INTERNAL_IPS = (
     '127.0.0.1',
+)
+
+#login with email
+AUTHENTICATION_BACKENDS = (
+    'nephaliste.backends.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend'
 )
 
 # A sample logging configuration. The only tangible logging

@@ -4,4 +4,3 @@ from models import *
 class DebitForm(ModelForm):
 	class Meta:
 		model = Vente
-
