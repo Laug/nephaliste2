@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 
-urlpatterns = patterns('',
-	url('', 'gestion.views.home'),
+urlpatterns = patterns('gestion.views',
+	url(r'^debiter/$', 'debit'),
+	url(r'^crediter/$', 'credit'),
 )

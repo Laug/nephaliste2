@@ -126,6 +126,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'south',
     'debug_toolbar',
+
+    'gestion',
 )
 
 #debug toolbar
